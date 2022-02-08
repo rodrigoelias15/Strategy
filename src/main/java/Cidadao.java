@@ -1,5 +1,3 @@
-import java.util.Date;
-
 public class Cidadao {
 
     private String dados;
@@ -13,6 +11,16 @@ public class Cidadao {
     }
 
     public void emitirIdentidade(String nomeCidadao, int anoNascimentoCidadao) {
+        UAI uai = new UAI(nomeCidadao, anoNascimentoCidadao);
+        this.dados = uai.emiteDocumento(new Identidade());
+    }
+
+    public void emitirPassaporte(String nomeCidadao, int anoNascimentoCidadao) {
+        UAI uai = new UAI(nomeCidadao, anoNascimentoCidadao);
+        this.dados = uai.emiteDocumento(new Passaporte());
+    }
+
+    public void emitirCarteiraMotorista(String nomeCidadao, int anoNascimentoCidadao) {
         UAI uai = new UAI(nomeCidadao, anoNascimentoCidadao);
         this.dados = uai.emiteDocumento(new CarteiraMotorista());
     }
